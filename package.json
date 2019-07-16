@@ -1,0 +1,58 @@
+{
+    "name": "xtractorr",
+    "version": "1.0.0",
+    "description": "Extrator de fontes informacionais de TI",
+    "main": "server.js",
+    "scripts": {
+        "start": "nodemon index.js",
+        "xtract": "run-func app/xtractorr-news/xtractorr-v1.js xtract",
+        "insert": "run-func app/xtractorr-news/services/insert-service.js insert xtractorr-v1.json",
+        "xtract-insert": "run-func app/xtractorr-news/xtractorr-v1.js xtract_insert",
+        "insert-noticia": "run-func app/xtractorr-news/services/insert-service.js insert xtractorr-v1-noticia.json",
+        "insert-evento": "run-func app/xtractorr-news/services/insert-service.js insert xtractorr-v1-evento.json",
+        "insert-edital": "run-func app/xtractorr-news/services/insert-service.js insert xtractorr-v1-edital.json",
+        "xtract-noticia": "run-func app/xtractorr-news/xtractorr-v1.js xtract_noticia",
+        "xtract-evento": "run-func app/xtractorr-news/xtractorr-v1.js xtract_evento",
+        "xtract-edital": "run-func app/xtractorr-news/xtractorr-v1.js xtract_edital",
+        "lint": "./node_modules/.bin/eslint **/*.js",
+        "lint-fix": "./node_modules/.bin/eslint **/*.js --fix"
+    },
+    "keywords": [
+        "mean-stack",
+        "ibm-watson",
+        "natural-language-understand",
+        "natural-language-classifier",
+        "web-scrap",
+        "puppeteer"
+    ],
+    "author": "Victor Gianvechio <victor.gianvecchio@live.com>",
+    "license": "ISC",
+    "nodemonConfig": {
+        "ignore": [
+            "result/*.json"
+        ]
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "clean-css": "^4.2.1",
+        "compression": "^1.7.4",
+        "cookie-parser": "^1.4.4",
+        "dotenv": "^8.0.0",
+        "express": "^4.16.4",
+        "express-validator": "^5.3.1",
+        "jade": "^1.11.0",
+        "mongoose": "^5.5.8",
+        "morgan": "^1.9.1",
+        "path": "^0.12.7",
+        "pug": "^2.0.3",
+        "puppeteer": "^1.16.0",
+        "swagger-node-express": "^2.1.3",
+        "watson-developer-cloud": "^4.0.1"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.0.2",
+        "eslint": "^6.0.1",
+        "nodemon": "^1.19.1",
+        "run-func": "^1.0.2"
+    }
+}

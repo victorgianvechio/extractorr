@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <title>Xtractorr</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="dist/css/normalize.css">
+  <link rel="stylesheet" href="dist/css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/github-prettify-theme.css">
+
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+  <!-- <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.html"></script> -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/app/app.js"></script>
+  <script src="js/index-controller.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="dist/img/favicon.png">
+
+</head>
+
+<body class="code-snippets-visible">
+
+
+  <style>
+
+  /* The Modal (background) */
+  .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content */
+  .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+  }
+
+  /* The Close Button */
+  .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+  </style>
+
+  <div id="modal-noticia" class="modal">
+    <div class="modal-content">
+      <!-- <button id="close-noticia" class="button close">&times;</button> -->
+      <span class="close close-noticia">&times;</span>
+      <h3 class="docs-header">Notícias JSON</h3>
+      <pre>
+        <code id="code-noticia-exp">
+          noticias
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div id="modal-edital" class="modal">
+    <div class="modal-content">
+      <!-- <button id="close-edital" class="button close">&times;</button> -->
+      <span class="close close-edital">&times;</span>
+      <h3 class="docs-header">Editais JSON</h3>
+      <pre>
+        <code id="code-edital-exp">
+          editais
+        </code>
+      </pre>
+    </div>
+  </div>
+
+<!-- Menu -->
+  <div class="navbar-spacer"></div>
+  <nav class="navbar navbar-center">
+    <div class="container">
+      <ul class="navbar-list">
+        <li class="navbar-item"><a class="navbar-link" href="#intro">Introdução</a></li>
+        <li class="navbar-item"><a class="navbar-link" href="#examples">Exemplos</a></li>
+        <li class="navbar-item"><a class="navbar-link" href"http://localhost:8080/" target="_blank">Documentação</a></li>
+        <li class="navbar-item"><a class="navbar-link" href"#">Pesquisa Avançada</a></li>
+        <!-- <li class="popover-item">
+                <a class="popover-link" href="https://github.com/dhg/Skeleton#browser-support" target="_blank">Browsers</a>
+              </li> -->
+        <!-- <li class="navbar-item"><a class="navbar-brand" href="#examples"><img class="value-img" alt="github logo" src="img/git-logo.png" height="32" width="32"></a></li>
+        <li class="navbar-item"><a class="navbar-brand" href="#examples"><img class="value-img" alt="github logo" src="img/watson-logo.png" height="32" width="32"></a></li>
+        <li class="navbar-item"><a class="navbar-brand" href="#examples"><img class="value-img" alt="github logo" src="img/skeleton-logo.png" height="32" width="32"></a></li>
+        <li class="navbar-item"><a class="navbar-brand" href="#examples"><img class="value-img" alt="github logo" src="img/puppeteer-logo.png" height="32" width="32"></a></li> -->
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <section class="header">
+      <h1 class="title">XTRACTORR</h2>
+      <!-- <a class="button button-primary" href="https://github.com/dhg/Skeleton/releases/download/2.0.4/Skeleton-2.0.4.zip" onClick="_gaq.push(['_trackEvent', 'skeleton', 'download'])">Download</a> -->
+      <div class="value-props row">
+        <div class="four columns value-prop">
+          <img class="value-img" src="img/scan.svg" height="70" width="70">
+          Scan<br>Analise fontes informacionais
+        </div>
+        <div class="four columns value-prop">
+          <img class="value-img" src="img/scrap.svg" height="70" width="70">
+          Scrap<br>Extraia informações específicas
+        </div>
+        <div class="four columns value-prop">
+          <img class="value-img" src="img/insight.svg" height="70" width="70">
+          Understand<br>Descubra entidades e conceitos com IBM Watson
+        </div>
+      </div>
+    </section>
+
+    <!-- Why use Skeleton -->
+    <div class="docs-section" id="intro">
+      <h6 class="docs-header">Introdução</h6>
+      <p>Aplicação web scrap, desenvolvida com MEAN Stack, interação com IBM Watson Natural Language Understanding API.</p>
+      <p>Xtractorr é uma ferramenta para analisar, extrair e descobrir entidades e conceitos de informações extraídas de sites. Este protótipo foi desenvolvido inicialmente para atuar na página do <a href="http://www.inovamarilia.com.br/" target="_blank" >Inova Marília</a>. A ferramenta possuí três principais funcionalidades:</p>
+      <!-- <p>A ferramenta possuí três principais funcionalidades:</p> -->
+
+      <dl>
+      <dt><b>Scan</b></dt>
+      <dd><p>O Scan é responsável por analisar a página alvo e iterar entre as páginas subsequentes extraíndo o título e o link da publicação.</p></dd>
+
+      <dt><b>Scrap</b></dt>
+      <dd><p>O Scrap itera os link obtidos pelo scan, extraíndo informações página por página. As informações a serem extraídas são mapeadas na ferramente, tais como: conteúdo da publicação, data da publicação, categoria, etc.</p></dd>
+
+      <dt><b>Understand</b></dt>
+      <dd><p>Aqui é feito as chamadas para a API do IBM Watson Language Understanding, onde é enviado o texto/conteúdo da publicação para que o Watson descubra entidades, conceitos e atribua relevância para os mesmos.</p></dd>
+      </dl>
+
+      <p>Ao final temos um arquivo JSON com todo o conteúdo extraído junto com as informações processadas pelo Watson. O código fonte está disponível no github.</p>
+
+      <iframe src="http://ghbtns.com/github-btn.html?user=victorgianvechio&amp;repo=Xtractorr&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+      <iframe src="http://ghbtns.com/github-btn.html?user=victorgianvechio&amp;repo=Xtractorr&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+    </div>
+
+    <!-- Examples -->
+    <div class="docs-section examples" id="examples" ng-controller="index-controller">
+      <h3 class="docs-header">Exemplos</h3>
+
+      <div class="row example">
+        <div class="one-half column">
+          <h6 class="example-header">Extrair Notícias</h6>
+          <p class="example-description">Demo extração de notícias. Link do conteúdo <a href="http://www.inovamarilia.com.br/category/noticias/page/1/" target="_blank" >aqui</a>.</p>
+          <div class="div-max-height">
+            <pre>
+              <code id="code-noticia">
+                {{noticias}}
+              </code>
+            </pre>
+          </div>
+          <div class="botao-centro">
+            <a class="button" id="btn-xtract-noticias" ng-click="xtractNoticia()">xtract!</a>
+            <!-- <a class="button" id="btn-ver-noticia">expandir</a> -->
+            <button class="button" id="ver-noticia" onclick="expandirNoticia()">expandir</button>
+          </div>
+        </div>
+
+        <div class="one-half column">
+          <h6 class="example-header">Extrair Editais</h6>
+          <p class="example-description">Demo extração de editais. Link do conteúdo <a href="http://www.inovamarilia.com.br/category/editais-2/page/1/" target="_blank" >aqui</a>.</p>
+          <div class="div-max-height">
+            <pre>
+              <code id="code-edital">
+                {{editais}}
+              </code>
+            </pre>
+          </div>
+          <div class="botao-centro">
+            <a class="button" id="btn-xtract-editais" ng-click="xtractEdital()">xtract!</a>
+            <!-- <a class="button" id="btn-ver-edital">expandir</a> -->
+            <button class="button" id="ver-edital" onclick="expandirEdital()">expandir</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="footer u-full-width">
+  <div class="container">
+    <div class="row botao-centro">
+
+      <div class="twelve columns">
+          <h5>&copy 2018 Xtractorr</h5>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="three columns botao-centro">
+      <a href="https://github.com/victorgianvechio/xtractorr"><img class="value-img" alt="github logo" src="img/git-logo.png" height="32" width="32"></a>
+    </div>
+
+    <div class="three columns botao-centro">
+      <a href="https://www.ibm.com/watson/"><img class="value-img" alt="ibm watson logo" src="img/watson-logo.png" height="32" width="32"></a>
+    </div>
+
+    <div class="three columns botao-centro">
+      <a href="http://getskeleton.com/"><img class="value-img" alt="skeleton logo" src="img/skeleton-logo.png" height="32" width="32"></a>
+    </div>
+
+    <div class="three columns botao-centro">
+      <a href="https://pptr.dev/"><img class="value-img" alt="puppetter logo" src="img/puppeteer-logo.png" height="32" width="25"></a>
+    </div>
+  </div>
+</div> -->
+
+
+<script>
+
+  var modal = document.getElementById('modal-edital');
+  var btn = document.getElementById("ver-edital");
+  var span = document.getElementsByClassName("close-edital")[0];
+  var modal2 = document.getElementById('modal-noticia');
+  var btn2 = document.getElementById("ver-noticia");
+  var span2 = document.getElementsByClassName("close-noticia")[0];
+
+// function expandirEdital() {
+
+  btn.onclick = function() {
+      modal.style.display = "block";
+      var value = document.getElementById('code-edital').innerText;
+      var code = document.getElementById('code-edital-exp');
+      code.innerText = value;
+  }
+
+  span.onclick = function() {
+      modal.style.display = "none";
+  }
+
+// }
+
+// function expandirNoticia() {
+
+  btn2.onclick = function() {
+      modal2.style.display = "block";
+      var value = document.getElementById('code-noticia').innerText;
+      var code = document.getElementById('code-noticia-exp');
+      code.innerText = value;
+  }
+
+  span2.onclick = function() {
+      modal2.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+      if (event.target == modal2) {
+          modal2.style.display = "none";
+      }
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+// }
+
+</script>
+
+
+</body>
+
+</html>

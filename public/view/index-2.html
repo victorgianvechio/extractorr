@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <title>Xtractorr</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="dist/css/normalize.css">
+  <link rel="stylesheet" href="dist/css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/github-prettify-theme.css">
+
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+  <!-- <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.html"></script> -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/app/app.js"></script>
+  <script src="js/index-controller.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="dist/images/favicon.png">
+
+</head>
+<body class="code-snippets-visible">
+
+<!-- Menu -->
+  <div class="navbar-spacer"></div>
+  <nav class="navbar navbar-center">
+    <div class="container">
+      <ul class="navbar-list">
+        <li class="navbar-item"><a class="navbar-link" href="#intro">Introduction</a></li>
+        <li class="navbar-item"><a class="navbar-link" href="#examples">Examples</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <section class="header">
+      <h1 class="title">XTRACTORR</h2>
+      <!-- <a class="button button-primary" href="https://github.com/dhg/Skeleton/releases/download/2.0.4/Skeleton-2.0.4.zip" onClick="_gaq.push(['_trackEvent', 'skeleton', 'download'])">Download</a> -->
+      <div class="value-props row">
+        <div class="four columns value-prop">
+          <img class="value-img" src="img/scan.svg" height="70" width="70">
+          Scan<br>Analyze informational sources
+        </div>
+        <div class="four columns value-prop">
+          <img class="value-img" src="img/scrap.svg" height="70" width="70">
+          Scrap<br>Map and extract informations
+        </div>
+        <div class="four columns value-prop">
+          <img class="value-img" src="img/insight.svg" height="70" width="70">
+          Understand<br>Find entities and concepts with IBM Watson
+        </div>
+      </div>
+    </section>
+
+    <!-- Why use Skeleton -->
+    <div class="docs-section" id="intro">
+      <h6 class="docs-header">Introduction</h6>
+      <p>A web scrap application developed with MEAN Stack and IBM Watson Language Understanding API services.</p>
+      <p>Xtractorr é uma ferramenta para analisar, extrair e descobrir entidades e conceitos de informações extraídas de sites. Este protótipo foi desenvolvido inicialmente para atuar na página do <a href="http://www.inovamarilia.com.br/" target="_blank" >Inova Marília</a>. A ferramenta possuí três principais funcionalidades:</p>
+      <!-- <p>A ferramenta possuí três principais funcionalidades:</p> -->
+
+      <dl>
+      <dt><b>Scan</b></dt>
+      <dd><p>O Scan é responsável por analisar a página alvo e iterar entre as páginas subsequentes extraíndo o título e o link da publicação.</p></dd>
+
+      <dt><b>Scrap</b></dt>
+      <dd><p>O Scrap itera os link obtidos pelo scan, extraíndo informações página por página. As informações a serem extraídas são mapeadas na ferramente, tais como: conteúdo da publicação, data da publicação, categoria, etc.</p></dd>
+
+      <dt><b>Understand</b></dt>
+      <dd><p>Aqui é feito as chamadas para a API do IBM Watson Language Understanding, onde é enviado o texto/conteúdo da publicação para que o Watson descubra entidades, conceitos e atribua relevância para os mesmos.</p></dd>
+      </dl>
+
+      <p>Ao final temos um arquivo JSON contendo todo o conteúdo extraído e as informações processadas pelo Watson. O código fonte está disponível no github.</p>
+
+      <iframe src="http://ghbtns.com/github-btn.html?user=victorgianvechio&amp;repo=Xtractorr&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+      <iframe src="http://ghbtns.com/github-btn.html?user=victorgianvechio&amp;repo=Xtractorr&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+    </div>
+
+    <!-- Examples -->
+    <div class="docs-section examples" id="examples" ng-controller="index-controller">
+      <h3 class="docs-header">Examples</h3>
+      <div class="row example">
+        <div class="one-half column div-max-height">
+          <h6 class="example-header">Extract News</h6>
+          <p class="example-description">Extract news demo. Content link <a href="http://www.inovamarilia.com.br/category/noticias/page/1/" target="_blank" >here</a>.</p>
+          <pre>
+            <code>
+              {{noticias}}
+            </code>
+          </pre>
+          <div class="botao-centro">
+            <a class="button div-botao-centro" id="btn-xtract-editais" ng-click="xtractNoticia()">xtract!</a>
+          </div>
+        </div>
+        <div class="one-half column div-max-height">
+          <h6 class="example-header">Extract Notice</h6>
+          <p class="example-description">Extract notice demo. Content link <a href="http://www.inovamarilia.com.br/category/editais-2/page/1/" target="_blank" >here</a>.</p>
+          <pre>
+            <code>
+              {{editais}}
+            </code>
+          </pre>
+          <div class="botao-centro">
+            <a class="button div-botao-centro" id="btn-xtract-noticia" ng-click="xtractEdital()">xtract!</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="footer u-full-width">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns botao-centro">
+          <h5>&copy 2018 Xtractorr</h5>
+          <a href="https://github.com/victorgianvechio/xtractorr"><img class="value-img" alt="github logo" src="img/git-logo.png" height="32" width="32"></a>
+          <a href="https://www.ibm.com/watson/"><img class="value-img" alt="ibm watson logo" src="img/watson-logo.png" height="32" width="32"></a>
+          <a href="http://getskeleton.com/"><img class="value-img" alt="skeleton logo" src="img/skeleton-logo.png" height="32" width="32"></a>
+          <a href="https://pptr.dev/"><img class="value-img" alt="puppetter logo" src="img/puppeteer-logo.png" height="32" width="25"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+
+</html>
